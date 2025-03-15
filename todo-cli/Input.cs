@@ -36,15 +36,26 @@ internal class Input
             case "get":
             case "g":
                 this.command = Command.Get;
-                this.key = string.Join(" ", inputList.Skip(1));
+                this.key = string.Join(string.Empty, inputList.Skip(1));
                 break;
             
             case "delete":
             case "d":
                 this.command = Command.Delete;
-                this.key = string.Join(" ", inputList.Skip(1));
+                this.key = string.Join(string.Empty, inputList.Skip(1));
                 break;
-            
+
+            case "update":
+            case "u":
+                this.command = Command.Update;
+                this.key = inputList[1];
+                break;
+
+            case "list":
+            case "l":
+                this.command = Command.List;
+                break;
+
             case "quit":
             case "q":
                 this.command = Command.Quit;

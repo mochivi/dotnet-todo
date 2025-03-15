@@ -6,27 +6,27 @@ using System.Threading.Tasks;
 
 namespace todo_cli;
 
-internal enum State
+internal enum Status
 {
-    Pending,
-    Done,
-    Late
+    Pending = 1,
+    Done = 2,
+    Late = 3,
 }
 
 internal class Item
 {
-    private State state {  get; set; }
-    private string value { get; set; }
+    internal Status State {  get; set; }
+    internal string Value { get; set; }
 
-    internal Item(State state, string value) 
+    internal Item(Status state, string value) 
     {
-        this.state = state;
-        this.value = value;
+        this.State = state;
+        this.Value = value;
     }
 
     public void Display()
     {
-        string display = state.ToString() + ": " + value;
+        string display = State.ToString() + ": " + Value;
         Console.WriteLine(display);
     }
 }
